@@ -188,20 +188,15 @@
             border-radius: 50%;
         }
 
-        .photo-placeholder {
-            width: 225px;
-            height: 225px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #20264a, #11152f);
-            border: 3px solid #7bdbff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #8e9ac8;
-            z-index: 2;
-        }
-
+      .profile-photo {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #7bdbff;
+    z-index: 2;
+    position: relative;
+}
         /* ================= SOCIAL ================= */
 
         .social {
@@ -458,9 +453,7 @@
 
             <div class="circle"></div>
 
-            <div class="photo-placeholder">
-                YOUR PHOTO
-            </div>
+          <img src="profile.jpg" alt="Satyam Pathak" class="profile-photo">
 
         </div>
 
