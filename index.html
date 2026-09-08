@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Portfolio -->
-
     <title>Satyam221303 | Portfolio</title>
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
@@ -20,35 +27,100 @@
             font-family: Arial, sans-serif;
             background: #070b2b;
             color: white;
+            overflow-x: hidden;
+            animation: pageFade 0.8s ease;
         }
 
-        /* ================= NAVBAR ================= */
+        /* =========================
+           PAGE ANIMATION
+        ========================= */
+
+        @keyframes pageFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             padding: 20px 8%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(7, 11, 43, 0.9);
-            backdrop-filter: blur(10px);
+
+            background: rgba(7, 11, 43, 0.90);
+            backdrop-filter: blur(12px);
+
             z-index: 1000;
+
+            animation: navDown 0.8s ease;
         }
+
+        @keyframes navDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* LOGO */
 
         .logo {
             width: 42px;
             height: 42px;
+
             border-radius: 10px;
-            background: linear-gradient(135deg, #00d4ff, #8b2cff);
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             font-size: 18px;
             font-weight: bold;
+
+            background: linear-gradient(
+                135deg,
+                #00d4ff,
+                #8b2cff
+            );
+
             box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+
+            animation: logoGlow 3s ease-in-out infinite;
         }
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 15px rgba(0, 212, 255, 0.35);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 30px rgba(139, 44, 255, 0.65);
+            }
+        }
+
+        /* NAV LINKS */
 
         nav ul {
             display: flex;
@@ -57,9 +129,13 @@
         }
 
         nav ul li a {
+            position: relative;
+
             color: #bfc6e8;
             text-decoration: none;
+
             font-size: 16px;
+
             transition: 0.3s;
         }
 
@@ -67,166 +143,459 @@
             color: #00d4ff;
         }
 
-        .resume-btn {
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            background: linear-gradient(90deg, #00cfff, #8b2cff);
-            box-shadow: 0 0 20px rgba(0, 200, 255, 0.25);
+        nav ul li a::after {
+            content: "";
+
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: #00d4ff;
+
+            transform: translateX(-50%);
+
+            transition: 0.3s;
         }
 
-        /* ================= HERO ================= */
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* RESUME BUTTON */
+
+        .resume-btn {
+            position: relative;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+            color: white;
+
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                #00cfff,
+                #8b2cff
+            );
+
+            box-shadow:
+                0 0 20px rgba(0, 200, 255, 0.25);
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
+
             padding: 150px 12% 80px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 50px;
+
             background:
-                radial-gradient(circle at 80% 50%, rgba(92, 35, 180, 0.15), transparent 35%),
-                radial-gradient(circle at 10% 20%, rgba(0, 180, 255, 0.12), transparent 30%),
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(92, 35, 180, 0.15),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(0, 180, 255, 0.12),
+                    transparent 30%
+                ),
+
                 #070b2b;
         }
 
+        /* HERO TEXT */
+
         .hero-text {
             max-width: 600px;
+
+            animation:
+                heroLeft 1s
+                cubic-bezier(.22, 1, .36, 1)
+                0.2s both;
+        }
+
+        @keyframes heroLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .hello {
             color: #00d4ff;
+
             letter-spacing: 4px;
+
             font-size: 15px;
+
             font-weight: bold;
+
             margin-bottom: 25px;
         }
 
         .hero h1 {
             font-size: clamp(50px, 7vw, 82px);
+
             line-height: 1;
+
             margin-bottom: 25px;
         }
 
         .gradient-text {
-            background: linear-gradient(90deg, #00d4ff, #9b5cff);
+            background:
+                linear-gradient(
+                    90deg,
+                    #00d4ff,
+                    #9b5cff
+                );
+
             -webkit-background-clip: text;
+
+            background-clip: text;
+
             color: transparent;
         }
 
         .hero h2 {
             color: #d9def5;
+
             font-size: 23px;
+
             margin-bottom: 28px;
+
             font-weight: normal;
         }
 
         .hero p {
             color: #aeb7da;
+
             font-size: 18px;
+
             line-height: 1.8;
+
             margin-bottom: 30px;
         }
 
+        /* =========================
+           BUTTONS
+        ========================= */
+
         .buttons {
             display: flex;
+
             gap: 16px;
+
             margin-bottom: 30px;
         }
 
         .btn {
+            position: relative;
+
             padding: 13px 24px;
+
             border-radius: 8px;
+
             text-decoration: none;
+
             font-weight: bold;
+
             display: inline-block;
-            transition: 0.3s;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
         }
 
         .primary {
             color: white;
-            background: linear-gradient(90deg, #00cfff, #8b2cff);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00cfff,
+                    #8b2cff
+                );
         }
 
         .secondary {
             color: #00d4ff;
+
             border: 1px solid #00a9d0;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 200, 255, 0.2);
-        }
+            transform: translateY(-4px);
 
-        /* ================= PHOTO ================= */
-
-        .photo-area {
-            position: relative;
-            width: 380px;
-            height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .circle {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 2px solid #00d4ff;
             box-shadow:
-                0 0 20px rgba(0, 212, 255, 0.3),
-                inset 0 0 30px rgba(120, 50, 255, 0.15);
+                0 10px 25px
+                rgba(0, 200, 255, 0.25);
         }
 
-        .circle::before {
+        /* BUTTON SHINE */
+
+        .btn::after {
             content: "";
+
             position: absolute;
-            inset: -22px;
-            border: 1px dashed #8b2cff;
-            border-radius: 50%;
+
+            top: 0;
+            left: -130%;
+
+            width: 55%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    transparent,
+                    rgba(255,255,255,0.3),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition: left 0.7s;
         }
 
-         .profile-photo {
-            width: 225px;
-            height: 225px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #7bdbff;
-            z-index: 2;
-            position: relative;
+        .btn:hover::after {
+            left: 140%;
         }
-        /* ================= SOCIAL ================= */
+
+        /* =========================
+           SOCIAL
+        ========================= */
 
         .social {
             display: flex;
+
             gap: 14px;
         }
 
         .social a {
             width: 45px;
             height: 45px;
+
             border: 1px solid #26345f;
+
             border-radius: 9px;
+
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             color: #aeb7da;
+
             text-decoration: none;
+
             font-weight: bold;
+
             transition: 0.3s;
         }
 
         .social a:hover {
             color: #00d4ff;
+
             border-color: #00d4ff;
-            transform: translateY(-3px);
+
+            transform:
+                translateY(-5px)
+                scale(1.06);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 212, 255, 0.2);
         }
 
-        /* ================= SECTIONS ================= */
+        /* =========================
+           PROFILE PHOTO
+        ========================= */
+
+        .photo-area {
+            position: relative;
+
+            width: 380px;
+            height: 380px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            animation:
+                photoEntrance 1s
+                cubic-bezier(.22, 1, .36, 1)
+                0.3s both;
+        }
+
+        @keyframes photoEntrance {
+
+            from {
+                opacity: 0;
+                transform:
+                    scale(0.8)
+                    translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    scale(1)
+                    translateX(0);
+            }
+        }
+
+        /* OUTER CIRCLE */
+
+        .circle {
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            border: 2px solid #00d4ff;
+
+            box-shadow:
+                0 0 20px
+                rgba(0, 212, 255, 0.3),
+
+                inset 0 0 30px
+                rgba(120, 50, 255, 0.15);
+
+            animation:
+                ringPulse 3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes ringPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.75;
+            }
+
+            50% {
+                transform: scale(1.07);
+                opacity: 1;
+            }
+        }
+
+        /* OUTER DASHED RING */
+
+        .circle::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -22px;
+
+            border:
+                1px dashed
+                #8b2cff;
+
+            border-radius: 50%;
+
+            animation:
+                rotateRing 12s
+                linear
+                infinite;
+        }
+
+        @keyframes rotateRing {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* PROFILE */
+
+        .profile-photo {
+            width: 225px;
+            height: 225px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 3px solid #7bdbff;
+
+            z-index: 2;
+
+            position: relative;
+
+            animation:
+                photoFloat 4.5s
+                ease-in-out
+                1.2s
+                infinite;
+
+            transition:
+                transform 0.35s,
+                filter 0.35s;
+        }
+
+        @keyframes photoFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.04);
+
+            filter: brightness(1.08);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             padding: 100px 12%;
@@ -234,7 +603,9 @@
 
         .section-title {
             text-align: center;
+
             font-size: 42px;
+
             margin-bottom: 50px;
         }
 
@@ -248,100 +619,227 @@
             background: #090e32;
         }
 
-        .content-box {
-            max-width: 900px;
-            margin: auto;
-            color: #aeb7da;
-            font-size: 18px;
-            line-height: 1.8;
-            text-align: center;
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(40px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s
+                cubic-bezier(.22, 1, .36, 1);
         }
 
-        /* ================= SKILLS ================= */
+        .reveal.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        /* =========================
+           CONTENT BOX
+        ========================= */
+
+        .content-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            color: #aeb7da;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
 
         .skills-container {
             display: flex;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             gap: 18px;
         }
 
         .skill {
             padding: 18px 30px;
-            border: 1px solid #26345f;
+
+            border:
+                1px solid
+                #26345f;
+
             border-radius: 10px;
+
             background: #0d133c;
+
             color: #dce2ff;
-            transition: 0.3s;
+
+            transition:
+                0.3s;
         }
 
         .skill:hover {
-            transform: translateY(-5px);
-            border-color: #00d4ff;
+            transform:
+                translateY(-7px)
+                scale(1.03);
+
+            border-color:
+                #00d4ff;
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 212, 255, 0.12);
         }
 
-        /* ================= PROJECTS ================= */
+        /* =========================
+           PROJECTS
+        ========================= */
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(250px, 1fr)
+                );
+
             gap: 25px;
         }
 
         .project {
             padding: 30px;
+
             border-radius: 15px;
+
             background: #0d133c;
-            border: 1px solid #26345f;
-            transition: 0.3s;
+
+            border:
+                1px solid
+                #26345f;
+
+            transition:
+                0.35s;
         }
 
         .project:hover {
-            transform: translateY(-8px);
-            border-color: #00d4ff;
+            transform:
+                translateY(-10px);
+
+            border-color:
+                #00d4ff;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 212, 255, 0.12);
         }
 
         .project h3 {
             margin-bottom: 15px;
+
             color: white;
         }
 
         .project p {
             color: #aeb7da;
+
             line-height: 1.6;
         }
 
-        /* ================= CONTACT ================= */
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education h3 {
+            color: white;
+
+            margin-bottom: 15px;
+
+            font-size: 24px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-info {
             text-align: center;
+
             line-height: 2.2;
+
             color: #b8c0df;
+
+            font-size: 18px;
         }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             padding: 25px;
+
             text-align: center;
+
             background: #050820;
+
             color: #7f89ae;
         }
 
-        /* ================= MOBILE ================= */
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
 
         @media (max-width: 800px) {
 
+            /* NAVBAR */
+
             nav {
-                padding: 15px 5%;
+                padding:
+                    15px 5%;
             }
 
             nav ul {
                 display: none;
             }
 
+            .resume-btn {
+                padding:
+                    10px 14px;
+
+                font-size: 13px;
+            }
+
+            /* HERO */
+
             .hero {
-                padding: 130px 7% 70px;
+                padding:
+                    120px 7% 70px;
+
                 flex-direction: column;
+
                 text-align: center;
+
+                gap: 30px;
             }
 
             .hero-text {
@@ -349,66 +847,256 @@
             }
 
             .hero h1 {
-                font-size: 55px;
+                font-size: 52px;
             }
 
-            .buttons,
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            /* BUTTONS */
+
+            .buttons {
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+            /* SOCIAL */
+
             .social {
                 justify-content: center;
             }
 
+            /* PHOTO */
+
             .photo-area {
-                width: 320px;
-                height: 320px;
+                width: 300px;
+                height: 300px;
             }
 
             .circle {
-                width: 250px;
-                height: 250px;
+                width: 245px;
+                height: 245px;
             }
 
-        .profile-photo {
-    width: 190px;
-    height: 190px;
-}
+            .profile-photo {
+                width: 190px;
+                height: 190px;
+            }
+
+            /* SECTIONS */
+
             section {
-                padding: 75px 7%;
+                padding:
+                    75px 7%;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            /* PROJECTS */
+
+            .projects {
+                grid-template-columns:
+                    1fr;
             }
         }
+
+        /* SMALL MOBILE */
+
+        @media (max-width: 450px) {
+
+            nav {
+                padding:
+                    12px 4%;
+            }
+
+            .logo {
+                width: 38px;
+                height: 38px;
+            }
+
+            .resume-btn {
+                font-size: 11px;
+
+                padding:
+                    9px 11px;
+            }
+
+            .hero {
+                padding:
+                    110px 5% 60px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .photo-area {
+                width: 270px;
+                height: 270px;
+            }
+
+            .circle {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile-photo {
+                width: 170px;
+                height: 170px;
+            }
+
+            .btn {
+                padding:
+                    12px 18px;
+
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .skill {
+                padding:
+                    14px 20px;
+            }
+        }
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+
+                transform: none;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
     <nav>
-        <div class="logo">S</div>
+
+        <div class="logo">
+            S
+        </div>
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills">
+                    Skills
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="#education">
+                    Education
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
         </ul>
 
-        <a href="#" class="resume-btn">↓ Download Resume</a>
+        <a
+            href="#"
+            class="resume-btn"
+        >
+            ↓ Download Resume
+        </a>
+
     </nav>
 
 
-    <!-- ================= HOME ================= -->
+    <!-- =========================
+         HOME
+    ========================= -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-text">
 
-            <div class="hello">HELLO, I'M</div>
+            <div class="hello">
+                HELLO, I'M
+            </div>
 
             <h1>
+
                 Satyam
-                <span class="gradient-text">Pathak</span>
+
+                <span class="gradient-text">
+                    Pathak
+                </span>
+
             </h1>
 
             <h2>
@@ -422,51 +1110,84 @@
             </p>
 
             <div class="buttons">
-                <a href="#projects" class="btn primary">
+
+                <a
+                    href="#projects"
+                    class="btn primary"
+                >
                     View My Work
                 </a>
 
-                <a href="#contact" class="btn secondary">
+                <a
+                    href="#contact"
+                    class="btn secondary"
+                >
                     Contact Me
                 </a>
+
             </div>
 
             <div class="social">
-                <a href="https://github.com/Satyam221303" target="_blank">
+
+                <a
+                    href="https://github.com/Satyam221303"
+                    target="_blank"
+                >
                     GH
                 </a>
 
-                <a href="#" target="_blank">
+                <a
+                    href="#"
+                    target="_blank"
+                >
                     in
                 </a>
 
-                <a href="mailto:yourmail@gmail.com">
+                <a
+                    href="mailto:yourmail@gmail.com"
+                >
                     @
                 </a>
+
             </div>
 
         </div>
 
 
-        <!-- PHOTO -->
+        <!-- PROFILE PHOTO -->
 
         <div class="photo-area">
 
             <div class="circle"></div>
 
-          <img src="profile.png" alt="Satyam Pathak" class="profile-photo">
+            <img
+                src="profile.png"
+                alt="Satyam Pathak"
+                class="profile-photo"
+            >
 
         </div>
 
     </section>
 
 
-    <!-- ================= ABOUT ================= -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
-    <section class="about" id="about">
+    <section
+        class="about reveal"
+        id="about"
+    >
 
         <h2 class="section-title">
-            About <span>Me</span>
+
+            About
+
+            <span>
+                Me
+            </span>
+
         </h2>
 
         <div class="content-box">
@@ -484,66 +1205,137 @@
     </section>
 
 
-    <!-- ================= SKILLS ================= -->
+    <!-- =========================
+         SKILLS
+    ========================= -->
 
-    <section id="skills">
+    <section
+        id="skills"
+        class="reveal"
+    >
 
         <h2 class="section-title">
-            My <span>Skills</span>
+
+            My
+
+            <span>
+                Skills
+            </span>
+
         </h2>
 
         <div class="skills-container">
 
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Java</div>
-            <div class="skill">C</div>
-            <div class="skill">C++</div>
-            <div class="skill">Python</div>
-            <div class="skill">SQL</div>
-            <div class="skill">GitHub</div>
+            <div class="skill">
+                HTML
+            </div>
+
+            <div class="skill">
+                CSS
+            </div>
+
+            <div class="skill">
+                JavaScript
+            </div>
+
+            <div class="skill">
+                Java
+            </div>
+
+            <div class="skill">
+                C
+            </div>
+
+            <div class="skill">
+                C++
+            </div>
+
+            <div class="skill">
+                Python
+            </div>
+
+            <div class="skill">
+                SQL
+            </div>
+
+            <div class="skill">
+                GitHub
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- ================= PROJECTS ================= -->
+    <!-- =========================
+         PROJECTS
+    ========================= -->
 
-    <section id="projects">
+    <section
+        id="projects"
+        class="reveal"
+    >
 
         <h2 class="section-title">
-            My <span>Projects</span>
+
+            My
+
+            <span>
+                Projects
+            </span>
+
         </h2>
 
         <div class="projects">
 
+            <!-- SHOPKART -->
+
             <div class="project">
-                <h3>ShopKart</h3>
+
+                <h3>
+                    ShopKart
+                </h3>
+
                 <p>
                     A responsive e-commerce website built
                     using HTML, CSS and JavaScript with
                     cart, checkout and order history features.
                 </p>
+
             </div>
 
+
+            <!-- APPLICATION FORM -->
+
             <div class="project">
-                <h3>Application Form</h3>
+
+                <h3>
+                    Application Form
+                </h3>
+
                 <p>
                     A GUI based application form project
                     developed using Python Tkinter with
                     input validation.
                 </p>
+
             </div>
 
+
+            <!-- JAVA -->
+
             <div class="project">
-                <h3>Java Programs</h3>
+
+                <h3>
+                    Java Programs
+                </h3>
+
                 <p>
                     Collection of Java programming exercises
                     covering basic programming and
                     object-oriented concepts.
                 </p>
+
             </div>
 
         </div>
@@ -551,17 +1343,28 @@
     </section>
 
 
-    <!-- ================= EDUCATION ================= -->
+    <!-- =========================
+         EDUCATION
+    ========================= -->
 
-    <section class="education" id="education">
+    <section
+        class="education reveal"
+        id="education"
+    >
 
         <h2 class="section-title">
-            <span>Education</span>
+
+            <span>
+                Education
+            </span>
+
         </h2>
 
         <div class="content-box">
 
-            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <h3>
+                Bachelor of Computer Applications (BCA)
+            </h3>
 
             <p>
                 Currently pursuing BCA with a focus on
@@ -574,28 +1377,131 @@
     </section>
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
-    <section class="contact" id="contact">
+    <section
+        class="contact reveal"
+        id="contact"
+    >
 
         <h2 class="section-title">
-            Contact <span>Me</span>
+
+            Contact
+
+            <span>
+                Me
+            </span>
+
         </h2>
 
         <div class="contact-info">
 
-            <p>Email: satyampathakpp2006@gmail.com</p>
-            <p>GitHub: Satyam221303</p>
-            <p>Location: India</p>
+            <p>
+                Email: yourmail@gmail.com
+            </p>
+
+            <p>
+                GitHub: Satyam221303
+            </p>
+
+            <p>
+                Location: India
+            </p>
 
         </div>
 
     </section>
 
 
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
-        © 2026 Satyam221303. All Rights Reserved.
+
+        © 2026 Satyam221303.
+        All Rights Reserved.
+
     </footer>
 
+
+    <!-- =========================
+         SCROLL REVEAL JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const items =
+                    document.querySelectorAll(
+                        ".reveal"
+                    );
+
+                if (
+                    !(
+                        "IntersectionObserver"
+                        in window
+                    )
+                ) {
+
+                    items.forEach(
+                        item =>
+                            item.classList.add(
+                                "show"
+                            )
+                    );
+
+                    return;
+                }
+
+                const observer =
+                    new IntersectionObserver(
+
+                        (entries, obs) => {
+
+                            entries.forEach(
+                                entry => {
+
+                                    if (
+                                        entry.isIntersecting
+                                    ) {
+
+                                        entry.target.classList.add(
+                                            "show"
+                                        );
+
+                                        obs.unobserve(
+                                            entry.target
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        },
+
+                        {
+                            threshold: 0.12
+                        }
+
+                    );
+
+                items.forEach(
+                    item =>
+                        observer.observe(item)
+                );
+
+            }
+        );
+
+    </script>
+
 </body>
+
 </html>
