@@ -2,257 +2,610 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Satyam221303 | Portfolio</title>
 
+
     <style>
 
-        /* =========================
+        /* =====================================================
            RESET
-        ========================= */
+        ===================================================== */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
             scroll-behavior: smooth;
         }
 
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
         body {
+
             font-family: Arial, sans-serif;
-            background: #070b2b;
+
+            background: #05082a;
+
             color: white;
+
             overflow-x: hidden;
-            animation: pageFade 0.8s ease;
+
         }
 
-        /* =========================
-           PAGE ANIMATION
-        ========================= */
 
-        @keyframes pageFade {
+        /* =====================================================
+           ANIMATED BACKGROUND
+        ===================================================== */
+
+        .animated-background {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(0, 180, 255, 0.12),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(130, 40, 255, 0.12),
+                    transparent 30%
+                ),
+
+                #05082a;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .grid {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0, 212, 255, 0.045) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(0, 212, 255, 0.045) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+
+            animation: gridMove 15s linear infinite;
+
+        }
+
+
+        @keyframes gridMove {
+
             from {
-                opacity: 0;
+                transform: translateY(0);
             }
 
             to {
-                opacity: 1;
+                transform: translateY(55px);
             }
+
         }
 
-        /* =========================
+
+        /* =====================================================
+           GLOW ORBS
+        ===================================================== */
+
+        .orb {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(60px);
+
+            opacity: 0.45;
+
+        }
+
+
+        .orb-one {
+
+            width: 320px;
+            height: 320px;
+
+            background: #006eff;
+
+            top: -100px;
+            left: -100px;
+
+            animation: orbOne 12s ease-in-out infinite;
+
+        }
+
+
+        .orb-two {
+
+            width: 360px;
+            height: 360px;
+
+            background: #7b22ff;
+
+            right: -120px;
+            top: 30%;
+
+            animation: orbTwo 15s ease-in-out infinite;
+
+        }
+
+
+        .orb-three {
+
+            width: 250px;
+            height: 250px;
+
+            background: #00d9ff;
+
+            left: 35%;
+            bottom: -120px;
+
+            animation: orbThree 13s ease-in-out infinite;
+
+        }
+
+
+        @keyframes orbOne {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(150px, 100px) scale(1.2);
+            }
+
+        }
+
+
+        @keyframes orbTwo {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-120px, -100px);
+            }
+
+        }
+
+
+        @keyframes orbThree {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(100px, -100px);
+            }
+
+        }
+
+
+        /* =====================================================
+           PARTICLES
+        ===================================================== */
+
+        .particle {
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #00d4ff;
+
+            box-shadow:
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff;
+
+            animation: particleFloat linear infinite;
+
+        }
+
+
+        .p1 {
+            left: 8%;
+            top: 25%;
+            animation-duration: 8s;
+        }
+
+        .p2 {
+            left: 18%;
+            top: 70%;
+            animation-duration: 11s;
+        }
+
+        .p3 {
+            left: 30%;
+            top: 15%;
+            animation-duration: 9s;
+        }
+
+        .p4 {
+            left: 42%;
+            top: 80%;
+            animation-duration: 13s;
+        }
+
+        .p5 {
+            left: 55%;
+            top: 30%;
+            animation-duration: 10s;
+        }
+
+        .p6 {
+            left: 65%;
+            top: 65%;
+            animation-duration: 12s;
+        }
+
+        .p7 {
+            left: 75%;
+            top: 18%;
+            animation-duration: 9s;
+        }
+
+        .p8 {
+            left: 88%;
+            top: 75%;
+            animation-duration: 14s;
+        }
+
+        .p9 {
+            left: 92%;
+            top: 35%;
+            animation-duration: 10s;
+        }
+
+        .p10 {
+            left: 12%;
+            top: 50%;
+            animation-duration: 12s;
+        }
+
+
+        @keyframes particleFloat {
+
+            0% {
+                transform:
+                    translateY(0)
+                    scale(0.5);
+
+                opacity: 0.2;
+            }
+
+            50% {
+                transform:
+                    translateY(-100px)
+                    scale(1.2);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-200px)
+                    scale(0.5);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =====================================================
            NAVBAR
-        ========================= */
+        ===================================================== */
 
         nav {
+
             position: fixed;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             padding: 20px 8%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
-            background: rgba(7, 11, 43, 0.90);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 8, 42, 0.75);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid rgba(0, 212, 255, 0.08);
 
             z-index: 1000;
 
-            animation: navDown 0.8s ease;
         }
 
-        @keyframes navDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* LOGO */
 
         .logo {
+
             width: 42px;
             height: 42px;
 
             border-radius: 10px;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
             font-size: 18px;
+
             font-weight: bold;
 
-            background: linear-gradient(
-                135deg,
-                #00d4ff,
-                #8b2cff
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d4ff,
+                    #833cff
+                );
 
-            box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+            box-shadow:
+                0 0 20px rgba(0, 212, 255, 0.4);
 
             animation: logoGlow 3s ease-in-out infinite;
+
         }
+
 
         @keyframes logoGlow {
 
             0%,
             100% {
                 box-shadow:
-                    0 0 15px rgba(0, 212, 255, 0.35);
+                    0 0 15px
+                    rgba(0, 212, 255, 0.3);
             }
 
             50% {
                 box-shadow:
-                    0 0 30px rgba(139, 44, 255, 0.65);
+                    0 0 30px
+                    rgba(130, 60, 255, 0.7);
             }
+
         }
 
-        /* NAV LINKS */
 
         nav ul {
+
             display: flex;
+
             gap: 35px;
+
             list-style: none;
+
         }
 
+
         nav ul li a {
-            position: relative;
 
             color: #bfc6e8;
+
             text-decoration: none;
 
             font-size: 16px;
 
+            position: relative;
+
             transition: 0.3s;
+
         }
 
-        nav ul li a:hover {
-            color: #00d4ff;
-        }
 
         nav ul li a::after {
+
             content: "";
 
             position: absolute;
-            left: 50%;
+
+            left: 0;
+
             bottom: -8px;
 
             width: 0;
+
             height: 2px;
 
-            background: #00d4ff;
-
-            transform: translateX(-50%);
+            background:
+                linear-gradient(
+                    90deg,
+                    #00d4ff,
+                    #8b2cff
+                );
 
             transition: 0.3s;
+
         }
+
+
+        nav ul li a:hover {
+
+            color: #00d4ff;
+
+        }
+
 
         nav ul li a:hover::after {
+
             width: 100%;
+
         }
 
-        /* RESUME BUTTON */
 
         .resume-btn {
-            position: relative;
 
             padding: 12px 20px;
 
             border-radius: 8px;
 
-            text-decoration: none;
             color: white;
+
+            text-decoration: none;
 
             font-weight: bold;
 
-            background: linear-gradient(
-                90deg,
-                #00cfff,
-                #8b2cff
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #00cfff,
+                    #8b2cff
+                );
 
             box-shadow:
-                0 0 20px rgba(0, 200, 255, 0.25);
-
-            overflow: hidden;
+                0 0 20px
+                rgba(0, 200, 255, 0.25);
 
             transition: 0.3s;
+
         }
+
 
         .resume-btn:hover {
+
             transform: translateY(-3px);
-            filter: brightness(1.1);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 200, 255, 0.4);
+
         }
 
-        /* =========================
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        main {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
+
             min-height: 100vh;
 
             padding: 150px 12% 80px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 50px;
 
-            background:
-                radial-gradient(
-                    circle at 80% 50%,
-                    rgba(92, 35, 180, 0.15),
-                    transparent 35%
-                ),
+            position: relative;
 
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(0, 180, 255, 0.12),
-                    transparent 30%
-                ),
-
-                #070b2b;
         }
 
-        /* HERO TEXT */
 
         .hero-text {
+
             max-width: 600px;
 
             animation:
-                heroLeft 1s
-                cubic-bezier(.22, 1, .36, 1)
-                0.2s both;
+                heroText 1.2s ease forwards;
+
         }
 
-        @keyframes heroLeft {
+
+        @keyframes heroText {
 
             from {
+
                 opacity: 0;
-                transform: translateX(-50px);
+
+                transform:
+                    translateX(-60px);
+
             }
 
             to {
+
                 opacity: 1;
-                transform: translateX(0);
+
+                transform:
+                    translateX(0);
+
             }
+
         }
 
+
         .hello {
+
             color: #00d4ff;
 
             letter-spacing: 4px;
@@ -262,32 +615,79 @@
             font-weight: bold;
 
             margin-bottom: 25px;
+
+            animation:
+                textGlow 3s ease-in-out infinite;
+
         }
 
+
+        @keyframes textGlow {
+
+            0%,
+            100% {
+                text-shadow:
+                    0 0 5px
+                    rgba(0, 212, 255, 0.2);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 20px
+                    rgba(0, 212, 255, 0.8);
+            }
+
+        }
+
+
         .hero h1 {
-            font-size: clamp(50px, 7vw, 82px);
+
+            font-size:
+                clamp(50px, 7vw, 82px);
 
             line-height: 1;
 
             margin-bottom: 25px;
+
         }
 
+
         .gradient-text {
+
             background:
                 linear-gradient(
                     90deg,
                     #00d4ff,
-                    #9b5cff
+                    #8b2cff,
+                    #00d4ff
                 );
+
+            background-size: 200% auto;
 
             -webkit-background-clip: text;
 
             background-clip: text;
 
             color: transparent;
+
+            animation:
+                gradientMove 4s linear infinite;
+
         }
 
+
+        @keyframes gradientMove {
+
+            to {
+                background-position:
+                    200% center;
+            }
+
+        }
+
+
         .hero h2 {
+
             color: #d9def5;
 
             font-size: 23px;
@@ -295,9 +695,12 @@
             margin-bottom: 28px;
 
             font-weight: normal;
+
         }
 
+
         .hero p {
+
             color: #aeb7da;
 
             font-size: 18px;
@@ -305,22 +708,26 @@
             line-height: 1.8;
 
             margin-bottom: 30px;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            BUTTONS
-        ========================= */
+        ===================================================== */
 
         .buttons {
+
             display: flex;
 
             gap: 16px;
 
             margin-bottom: 30px;
+
         }
 
+
         .btn {
-            position: relative;
 
             padding: 13px 24px;
 
@@ -332,14 +739,51 @@
 
             display: inline-block;
 
+            transition: 0.35s;
+
+            position: relative;
+
             overflow: hidden;
 
-            transition:
-                transform 0.3s,
-                box-shadow 0.3s;
         }
 
+
+        .btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.25),
+                    transparent
+                );
+
+            transition: 0.5s;
+
+        }
+
+
+        .btn:hover::before {
+
+            left: 100%;
+
+        }
+
+
         .primary {
+
             color: white;
 
             background:
@@ -348,67 +792,60 @@
                     #00cfff,
                     #8b2cff
                 );
-        }
-
-        .secondary {
-            color: #00d4ff;
-
-            border: 1px solid #00a9d0;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
 
             box-shadow:
-                0 10px 25px
-                rgba(0, 200, 255, 0.25);
+                0 0 20px
+                rgba(0, 200, 255, 0.2);
+
         }
 
-        /* BUTTON SHINE */
 
-        .btn::after {
-            content: "";
+        .secondary {
 
-            position: absolute;
+            color: #00d4ff;
 
-            top: 0;
-            left: -130%;
-
-            width: 55%;
-            height: 100%;
+            border:
+                1px solid #00a9d0;
 
             background:
-                linear-gradient(
-                    110deg,
-                    transparent,
-                    rgba(255,255,255,0.3),
-                    transparent
-                );
+                rgba(0, 212, 255, 0.03);
 
-            transform: skewX(-20deg);
-
-            transition: left 0.7s;
         }
 
-        .btn:hover::after {
-            left: 140%;
+
+        .btn:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.02);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 200, 255, 0.3);
+
         }
 
-        /* =========================
+
+        /* =====================================================
            SOCIAL
-        ========================= */
+        ===================================================== */
 
         .social {
+
             display: flex;
 
             gap: 14px;
+
         }
 
+
         .social a {
+
             width: 45px;
             height: 45px;
 
-            border: 1px solid #26345f;
+            border:
+                1px solid #26345f;
 
             border-radius: 9px;
 
@@ -424,121 +861,131 @@
             font-weight: bold;
 
             transition: 0.3s;
+
+            background:
+                rgba(255,255,255,0.02);
+
         }
 
+
         .social a:hover {
+
             color: #00d4ff;
 
             border-color: #00d4ff;
 
             transform:
-                translateY(-5px)
-                scale(1.06);
+                translateY(-6px)
+                rotate(3deg);
 
             box-shadow:
                 0 8px 20px
                 rgba(0, 212, 255, 0.2);
+
         }
 
-        /* =========================
-           PROFILE PHOTO
-        ========================= */
+
+        /* =====================================================
+           PHOTO AREA
+        ===================================================== */
 
         .photo-area {
+
             position: relative;
 
             width: 380px;
+
             height: 380px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             animation:
-                photoEntrance 1s
-                cubic-bezier(.22, 1, .36, 1)
-                0.3s both;
+                photoEntrance 1.3s ease forwards;
+
         }
+
 
         @keyframes photoEntrance {
 
             from {
+
                 opacity: 0;
+
                 transform:
-                    scale(0.8)
-                    translateX(40px);
+                    translateX(60px)
+                    scale(0.8);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
-                    scale(1)
-                    translateX(0);
-            }
-        }
+                    translateX(0)
+                    scale(1);
 
-        /* OUTER CIRCLE */
-
-        .circle {
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            border-radius: 50%;
-
-            border: 2px solid #00d4ff;
-
-            box-shadow:
-                0 0 20px
-                rgba(0, 212, 255, 0.3),
-
-                inset 0 0 30px
-                rgba(120, 50, 255, 0.15);
-
-            animation:
-                ringPulse 3s
-                ease-in-out
-                infinite;
-        }
-
-        @keyframes ringPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.75;
             }
 
-            50% {
-                transform: scale(1.07);
-                opacity: 1;
-            }
         }
 
-        /* OUTER DASHED RING */
 
-        .circle::before {
+        /* OUTER ROTATING RING */
+
+        .photo-area::before {
+
             content: "";
 
             position: absolute;
 
-            inset: -22px;
-
-            border:
-                1px dashed
-                #8b2cff;
+            width: 340px;
+            height: 340px;
 
             border-radius: 50%;
 
+            border:
+                1px dashed
+                rgba(139, 44, 255, 0.9);
+
             animation:
-                rotateRing 12s
-                linear
-                infinite;
+                rotateRing 18s linear infinite;
+
         }
 
+
+        /* SECOND RING */
+
+        .photo-area::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(0, 212, 255, 0.25);
+
+            box-shadow:
+                0 0 35px
+                rgba(0, 212, 255, 0.15);
+
+            animation:
+                pulseRing 3s ease-in-out infinite;
+
+        }
+
+
         @keyframes rotateRing {
+
             from {
                 transform: rotate(0deg);
             }
@@ -546,107 +993,224 @@
             to {
                 transform: rotate(360deg);
             }
+
         }
 
-        /* PROFILE */
+
+        @keyframes pulseRing {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                transform: scale(1.08);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        .circle {
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            border:
+                2px solid #00d4ff;
+
+            box-shadow:
+
+                0 0 25px
+                rgba(0, 212, 255, 0.4),
+
+                inset 0 0 30px
+                rgba(120, 50, 255, 0.15);
+
+            animation:
+                circleGlow 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes circleGlow {
+
+            0%,
+            100% {
+
+                box-shadow:
+
+                    0 0 20px
+                    rgba(0, 212, 255, 0.35),
+
+                    inset 0 0 30px
+                    rgba(120, 50, 255, 0.15);
+
+            }
+
+            50% {
+
+                box-shadow:
+
+                    0 0 45px
+                    rgba(0, 212, 255, 0.7),
+
+                    inset 0 0 50px
+                    rgba(120, 50, 255, 0.25);
+
+            }
+
+        }
+
+
+        .circle::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -22px;
+
+            border:
+                1px dashed #8b2cff;
+
+            border-radius: 50%;
+
+            animation:
+                rotateRingReverse 12s linear infinite;
+
+        }
+
+
+        @keyframes rotateRingReverse {
+
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+
+        }
+
 
         .profile-photo {
+
             width: 225px;
+
             height: 225px;
 
             border-radius: 50%;
 
             object-fit: cover;
 
-            border: 3px solid #7bdbff;
+            border:
+                3px solid #7bdbff;
 
-            z-index: 2;
+            z-index: 5;
 
             position: relative;
 
-            animation:
-                photoFloat 4.5s
-                ease-in-out
-                1.2s
-                infinite;
+            box-shadow:
+                0 0 35px
+                rgba(0, 212, 255, 0.3);
 
-            transition:
-                transform 0.35s,
-                filter 0.35s;
+            animation:
+                photoFloat 4s ease-in-out infinite;
+
         }
+
 
         @keyframes photoFloat {
 
             0%,
             100% {
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
+
             }
 
             50% {
-                transform: translateY(-8px);
+
+                transform:
+                    translateY(-12px);
+
             }
+
         }
 
-        .profile-photo:hover {
-            transform: scale(1.04);
 
-            filter: brightness(1.08);
-        }
-
-        /* =========================
+        /* =====================================================
            SECTIONS
-        ========================= */
+        ===================================================== */
 
         section {
+
             padding: 100px 12%;
+
+            position: relative;
+
         }
 
+
         .section-title {
+
             text-align: center;
 
             font-size: 42px;
 
             margin-bottom: 50px;
+
         }
 
+
         .section-title span {
-            color: #00d4ff;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00d4ff,
+                    #8b2cff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
         }
+
 
         .about,
         .education,
         .contact {
-            background: #090e32;
+
+            background:
+                rgba(9, 14, 50, 0.45);
+
+            backdrop-filter: blur(5px);
+
         }
 
-        /* =========================
-           SCROLL REVEAL
-        ========================= */
-
-        .reveal {
-            opacity: 0;
-
-            transform:
-                translateY(40px);
-
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s
-                cubic-bezier(.22, 1, .36, 1);
-        }
-
-        .reveal.show {
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-        /* =========================
-           CONTENT BOX
-        ========================= */
 
         .content-box {
+
             max-width: 900px;
 
             margin: auto;
@@ -659,18 +1223,15 @@
 
             text-align: center;
 
-            transition: 0.3s;
         }
 
-        .content-box:hover {
-            transform: translateY(-5px);
-        }
 
-        /* =========================
+        /* =====================================================
            SKILLS
-        ========================= */
+        ===================================================== */
 
         .skills-container {
+
             display: flex;
 
             flex-wrap: wrap;
@@ -678,43 +1239,87 @@
             justify-content: center;
 
             gap: 18px;
+
         }
 
+
         .skill {
+
             padding: 18px 30px;
 
             border:
-                1px solid
-                #26345f;
+                1px solid #26345f;
 
             border-radius: 10px;
 
-            background: #0d133c;
+            background:
+                rgba(13, 19, 60, 0.7);
 
             color: #dce2ff;
 
-            transition:
-                0.3s;
+            transition: 0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+
         }
+
+
+        .skill::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+
+            height: 100%;
+
+            left: 0;
+
+            top: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,212,255,0.15),
+                    rgba(139,44,255,0.15)
+                );
+
+            transition: 0.35s;
+
+        }
+
+
+        .skill:hover::before {
+
+            width: 100%;
+
+        }
+
 
         .skill:hover {
+
             transform:
-                translateY(-7px)
+                translateY(-8px)
                 scale(1.03);
 
-            border-color:
-                #00d4ff;
+            border-color: #00d4ff;
 
             box-shadow:
-                0 10px 25px
-                rgba(0, 212, 255, 0.12);
+                0 10px 30px
+                rgba(0, 212, 255, 0.15);
+
         }
 
-        /* =========================
+
+        /* =====================================================
            PROJECTS
-        ========================= */
+        ===================================================== */
 
         .projects {
+
             display: grid;
 
             grid-template-columns:
@@ -724,305 +1329,577 @@
                 );
 
             gap: 25px;
+
         }
 
+
         .project {
+
             padding: 30px;
 
             border-radius: 15px;
 
-            background: #0d133c;
+            background:
+                rgba(13, 19, 60, 0.7);
 
             border:
-                1px solid
-                #26345f;
+                1px solid #26345f;
 
-            transition:
-                0.35s;
+            transition: 0.4s;
+
+            position: relative;
+
+            overflow: hidden;
+
         }
 
+
+        .project::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 3px;
+
+            left: -100%;
+
+            top: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00d4ff,
+                    #8b2cff
+                );
+
+            transition: 0.5s;
+
+        }
+
+
+        .project:hover::before {
+
+            left: 0;
+
+        }
+
+
         .project:hover {
+
             transform:
                 translateY(-10px);
 
-            border-color:
-                #00d4ff;
+            border-color: #00d4ff;
 
             box-shadow:
                 0 15px 35px
                 rgba(0, 212, 255, 0.12);
+
         }
 
+
         .project h3 {
+
             margin-bottom: 15px;
 
             color: white;
+
+            font-size: 22px;
+
         }
 
+
         .project p {
+
             color: #aeb7da;
 
             line-height: 1.6;
+
         }
 
-        /* =========================
-           EDUCATION
-        ========================= */
 
-        .education h3 {
+        /* =====================================================
+           EDUCATION
+        ===================================================== */
+
+        .education .content-box h3 {
+
             color: white;
+
+            font-size: 25px;
 
             margin-bottom: 15px;
 
-            font-size: 24px;
         }
 
-        /* =========================
+
+        /* =====================================================
            CONTACT
-        ========================= */
+        ===================================================== */
 
         .contact-info {
+
             text-align: center;
 
             line-height: 2.2;
 
             color: #b8c0df;
 
-            font-size: 18px;
         }
 
-        /* =========================
+
+        .contact-info p {
+
+            transition: 0.3s;
+
+        }
+
+
+        .contact-info p:hover {
+
+            color: #00d4ff;
+
+            transform:
+                scale(1.03);
+
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
+
             padding: 25px;
 
             text-align: center;
 
-            background: #050820;
+            background:
+                rgba(5, 8, 32, 0.9);
 
             color: #7f89ae;
+
+            position: relative;
+
+            z-index: 2;
+
         }
 
-        /* =========================
-           MOBILE RESPONSIVE
-        ========================= */
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(50px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+
+        }
+
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 800px) {
 
-            /* NAVBAR */
 
             nav {
+
                 padding:
                     15px 5%;
+
             }
+
 
             nav ul {
+
                 display: none;
+
             }
 
+
             .resume-btn {
+
                 padding:
                     10px 14px;
 
                 font-size: 13px;
+
             }
 
-            /* HERO */
 
             .hero {
+
                 padding:
-                    120px 7% 70px;
+                    130px 7% 70px;
 
                 flex-direction: column;
 
                 text-align: center;
 
-                gap: 30px;
+                min-height: auto;
+
             }
+
 
             .hero-text {
+
                 max-width: 100%;
+
             }
+
 
             .hero h1 {
-                font-size: 52px;
+
+                font-size:
+                    52px;
+
             }
+
 
             .hero h2 {
-                font-size: 20px;
+
+                font-size:
+                    20px;
+
             }
+
 
             .hero p {
-                font-size: 16px;
+
+                font-size:
+                    16px;
+
             }
 
-            /* BUTTONS */
 
             .buttons {
-                justify-content: center;
 
-                flex-wrap: wrap;
+                justify-content:
+                    center;
+
+                flex-wrap:
+                    wrap;
+
             }
 
-            /* SOCIAL */
 
             .social {
-                justify-content: center;
+
+                justify-content:
+                    center;
+
             }
 
-            /* PHOTO */
 
             .photo-area {
-                width: 300px;
-                height: 300px;
+
+                width:
+                    320px;
+
+                height:
+                    320px;
+
+                margin-top:
+                    30px;
+
             }
+
 
             .circle {
-                width: 245px;
-                height: 245px;
+
+                width:
+                    250px;
+
+                height:
+                    250px;
+
             }
+
+
+            .photo-area::before {
+
+                width:
+                    290px;
+
+                height:
+                    290px;
+
+            }
+
+
+            .photo-area::after {
+
+                width:
+                    275px;
+
+                height:
+                    275px;
+
+            }
+
 
             .profile-photo {
-                width: 190px;
-                height: 190px;
+
+                width:
+                    190px;
+
+                height:
+                    190px;
+
             }
 
-            /* SECTIONS */
 
             section {
+
                 padding:
                     75px 7%;
+
             }
+
 
             .section-title {
-                font-size: 34px;
+
+                font-size:
+                    34px;
+
             }
 
-            /* PROJECTS */
 
-            .projects {
-                grid-template-columns:
-                    1fr;
+            .orb-one {
+
+                width:
+                    200px;
+
+                height:
+                    200px;
+
             }
+
+
+            .orb-two {
+
+                width:
+                    220px;
+
+                height:
+                    220px;
+
+            }
+
+
+            .orb-three {
+
+                width:
+                    180px;
+
+                height:
+                    180px;
+
+            }
+
+
         }
 
-        /* SMALL MOBILE */
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
 
         @media (max-width: 450px) {
 
-            nav {
-                padding:
-                    12px 4%;
-            }
 
             .logo {
-                width: 38px;
-                height: 38px;
+
+                width:
+                    38px;
+
+                height:
+                    38px;
+
             }
 
+
             .resume-btn {
-                font-size: 11px;
+
+                font-size:
+                    11px;
 
                 padding:
                     9px 11px;
+
             }
 
-            .hero {
-                padding:
-                    110px 5% 60px;
-            }
 
             .hero h1 {
-                font-size: 43px;
+
+                font-size:
+                    43px;
+
             }
+
 
             .hero h2 {
-                font-size: 18px;
+
+                font-size:
+                    18px;
+
             }
 
-            .hero p {
-                font-size: 15px;
-            }
 
             .photo-area {
-                width: 270px;
-                height: 270px;
+
+                width:
+                    290px;
+
+                height:
+                    290px;
+
             }
+
 
             .circle {
-                width: 220px;
-                height: 220px;
+
+                width:
+                    225px;
+
+                height:
+                    225px;
+
             }
+
+
+            .photo-area::before {
+
+                width:
+                    260px;
+
+                height:
+                    260px;
+
+            }
+
+
+            .photo-area::after {
+
+                width:
+                    245px;
+
+                height:
+                    245px;
+
+            }
+
 
             .profile-photo {
-                width: 170px;
-                height: 170px;
+
+                width:
+                    170px;
+
+                height:
+                    170px;
+
             }
 
-            .btn {
-                padding:
-                    12px 18px;
 
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-
-            .skill {
-                padding:
-                    14px 20px;
-            }
         }
 
-        /* =========================
+
+        /* =====================================================
            REDUCED MOTION
-        ========================= */
+        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
 
             *,
             *::before,
             *::after {
+
                 animation-duration:
                     0.01ms !important;
 
                 animation-iteration-count:
                     1 !important;
 
+                scroll-behavior:
+                    auto !important;
+
                 transition-duration:
                     0.01ms !important;
+
             }
 
-            .reveal {
-                opacity: 1;
-
-                transform: none;
-            }
         }
 
     </style>
 
 </head>
 
+
 <body>
 
-    <!-- =========================
+
+    <!-- =====================================================
+         ANIMATED BACKGROUND
+    ===================================================== -->
+
+    <div class="animated-background">
+
+        <div class="grid"></div>
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+        <div class="particle p5"></div>
+        <div class="particle p6"></div>
+        <div class="particle p7"></div>
+        <div class="particle p8"></div>
+        <div class="particle p9"></div>
+        <div class="particle p10"></div>
+
+    </div>
+
+
+    <!-- =====================================================
          NAVBAR
-    ========================= -->
+    ===================================================== -->
 
     <nav>
 
         <div class="logo">
             S
         </div>
+
 
         <ul>
 
@@ -1064,6 +1941,7 @@
 
         </ul>
 
+
         <a
             href="#"
             class="resume-btn"
@@ -1074,433 +1952,516 @@
     </nav>
 
 
-    <!-- =========================
-         HOME
-    ========================= -->
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
 
-    <section
-        class="hero"
-        id="home"
-    >
+    <main>
 
-        <div class="hero-text">
 
-            <div class="hello">
-                HELLO, I'M
+        <!-- =================================================
+             HOME
+        ================================================= -->
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+
+            <div class="hero-text">
+
+
+                <div class="hello">
+                    HELLO, I'M
+                </div>
+
+
+                <h1>
+
+                    Satyam
+
+                    <span class="gradient-text">
+                        Pathak
+                    </span>
+
+                </h1>
+
+
+                <h2>
+                    BCA Student | Aspiring Developer
+                </h2>
+
+
+                <p>
+
+                    BCA student passionate about programming,
+                    web development, data analytics and building
+                    practical technology solutions.
+
+                </p>
+
+
+                <div class="buttons">
+
+
+                    <a
+                        href="#projects"
+                        class="btn primary"
+                    >
+                        View My Work
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="btn secondary"
+                    >
+                        Contact Me
+                    </a>
+
+
+                </div>
+
+
+                <div class="social">
+
+
+                    <a
+                        href="https://github.com/Satyam221303"
+                        target="_blank"
+                    >
+                        GH
+                    </a>
+
+
+                    <a
+                        href="#"
+                        target="_blank"
+                    >
+                        in
+                    </a>
+
+
+                    <a
+                        href="mailto:yourmail@gmail.com"
+                    >
+                        @
+                    </a>
+
+
+                </div>
+
+
             </div>
 
-            <h1>
 
-                Satyam
+            <!-- =============================================
+                 PHOTO
+            ============================================== -->
 
-                <span class="gradient-text">
-                    Pathak
-                </span>
+            <div class="photo-area">
 
-            </h1>
 
-            <h2>
-                BCA Student | Aspiring Developer
+                <div class="circle"></div>
+
+
+                <img
+                    src="profile.png"
+                    alt="Satyam Pathak"
+                    class="profile-photo"
+                >
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================= -->
+
+        <section
+            class="about reveal"
+            id="about"
+        >
+
+
+            <h2 class="section-title">
+
+                About
+                <span>Me</span>
+
             </h2>
 
-            <p>
-                BCA student passionate about programming,
-                web development, data analytics and building
-                practical technology solutions.
-            </p>
 
-            <div class="buttons">
+            <div class="content-box">
 
-                <a
-                    href="#projects"
-                    class="btn primary"
-                >
-                    View My Work
-                </a>
-
-                <a
-                    href="#contact"
-                    class="btn secondary"
-                >
-                    Contact Me
-                </a>
-
-            </div>
-
-            <div class="social">
-
-                <a
-                    href="https://github.com/Satyam221303"
-                    target="_blank"
-                >
-                    GH
-                </a>
-
-                <a
-                    href="#"
-                    target="_blank"
-                >
-                    in
-                </a>
-
-                <a
-                    href="mailto:yourmail@gmail.com"
-                >
-                    @
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROFILE PHOTO -->
-
-        <div class="photo-area">
-
-            <div class="circle"></div>
-
-            <img
-                src="profile.png"
-                alt="Satyam Pathak"
-                class="profile-photo"
-            >
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section
-        class="about reveal"
-        id="about"
-    >
-
-        <h2 class="section-title">
-
-            About
-
-            <span>
-                Me
-            </span>
-
-        </h2>
-
-        <div class="content-box">
-
-            <p>
-                I am a BCA student interested in software
-                development and modern technology. I enjoy
-                learning programming languages, developing
-                projects and solving real-world problems
-                through technology.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SKILLS
-    ========================= -->
-
-    <section
-        id="skills"
-        class="reveal"
-    >
-
-        <h2 class="section-title">
-
-            My
-
-            <span>
-                Skills
-            </span>
-
-        </h2>
-
-        <div class="skills-container">
-
-            <div class="skill">
-                HTML
-            </div>
-
-            <div class="skill">
-                CSS
-            </div>
-
-            <div class="skill">
-                JavaScript
-            </div>
-
-            <div class="skill">
-                Java
-            </div>
-
-            <div class="skill">
-                C
-            </div>
-
-            <div class="skill">
-                C++
-            </div>
-
-            <div class="skill">
-                Python
-            </div>
-
-            <div class="skill">
-                SQL
-            </div>
-
-            <div class="skill">
-                GitHub
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
-    <section
-        id="projects"
-        class="reveal"
-    >
-
-        <h2 class="section-title">
-
-            My
-
-            <span>
-                Projects
-            </span>
-
-        </h2>
-
-        <div class="projects">
-
-            <!-- SHOPKART -->
-
-            <div class="project">
-
-                <h3>
-                    ShopKart
-                </h3>
 
                 <p>
-                    A responsive e-commerce website built
-                    using HTML, CSS and JavaScript with
-                    cart, checkout and order history features.
+
+                    I am a BCA student interested in software
+                    development and modern technology. I enjoy
+                    learning programming languages, developing
+                    projects and solving real-world problems
+                    through technology.
+
                 </p>
+
 
             </div>
 
 
-            <!-- APPLICATION FORM -->
+        </section>
 
-            <div class="project">
+
+        <!-- =================================================
+             SKILLS
+        ================================================= -->
+
+        <section
+            id="skills"
+            class="reveal"
+        >
+
+
+            <h2 class="section-title">
+
+                My
+                <span>Skills</span>
+
+            </h2>
+
+
+            <div class="skills-container">
+
+
+                <div class="skill">
+                    HTML
+                </div>
+
+
+                <div class="skill">
+                    CSS
+                </div>
+
+
+                <div class="skill">
+                    JavaScript
+                </div>
+
+
+                <div class="skill">
+                    Java
+                </div>
+
+
+                <div class="skill">
+                    C
+                </div>
+
+
+                <div class="skill">
+                    C++
+                </div>
+
+
+                <div class="skill">
+                    Python
+                </div>
+
+
+                <div class="skill">
+                    SQL
+                </div>
+
+
+                <div class="skill">
+                    GitHub
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================= -->
+
+        <section
+            id="projects"
+            class="reveal"
+        >
+
+
+            <h2 class="section-title">
+
+                My
+                <span>Projects</span>
+
+            </h2>
+
+
+            <div class="projects">
+
+
+                <div class="project">
+
+
+                    <h3>
+                        ShopKart
+                    </h3>
+
+
+                    <p>
+
+                        A responsive e-commerce website built
+                        using HTML, CSS and JavaScript with
+                        cart, checkout and order history features.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="project">
+
+
+                    <h3>
+                        Application Form
+                    </h3>
+
+
+                    <p>
+
+                        A GUI based application form project
+                        developed using Python Tkinter with
+                        input validation.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="project">
+
+
+                    <h3>
+                        Java Programs
+                    </h3>
+
+
+                    <p>
+
+                        Collection of Java programming exercises
+                        covering basic programming and
+                        object-oriented concepts.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             EDUCATION
+        ================================================= -->
+
+        <section
+            class="education reveal"
+            id="education"
+        >
+
+
+            <h2 class="section-title">
+
+                <span>Education</span>
+
+            </h2>
+
+
+            <div class="content-box">
+
 
                 <h3>
-                    Application Form
+
+                    Bachelor of Computer Applications (BCA)
+
                 </h3>
 
+
                 <p>
-                    A GUI based application form project
-                    developed using Python Tkinter with
-                    input validation.
+
+                    Currently pursuing BCA with a focus on
+                    programming, computer science fundamentals
+                    and practical project development.
+
                 </p>
+
 
             </div>
 
 
-            <!-- JAVA -->
+        </section>
 
-            <div class="project">
 
-                <h3>
-                    Java Programs
-                </h3>
+        <!-- =================================================
+             CONTACT
+        ================================================= -->
+
+        <section
+            class="contact reveal"
+            id="contact"
+        >
+
+
+            <h2 class="section-title">
+
+                Contact
+                <span>Me</span>
+
+            </h2>
+
+
+            <div class="contact-info">
+
 
                 <p>
-                    Collection of Java programming exercises
-                    covering basic programming and
-                    object-oriented concepts.
+                    Email: yourmail@gmail.com
                 </p>
+
+
+                <p>
+                    GitHub: Satyam221303
+                </p>
+
+
+                <p>
+                    Location: India
+                </p>
+
 
             </div>
 
-        </div>
 
-    </section>
-
-
-    <!-- =========================
-         EDUCATION
-    ========================= -->
-
-    <section
-        class="education reveal"
-        id="education"
-    >
-
-        <h2 class="section-title">
-
-            <span>
-                Education
-            </span>
-
-        </h2>
-
-        <div class="content-box">
-
-            <h3>
-                Bachelor of Computer Applications (BCA)
-            </h3>
-
-            <p>
-                Currently pursuing BCA with a focus on
-                programming, computer science fundamentals
-                and practical project development.
-            </p>
-
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section
-        class="contact reveal"
-        id="contact"
-    >
-
-        <h2 class="section-title">
-
-            Contact
-
-            <span>
-                Me
-            </span>
-
-        </h2>
-
-        <div class="contact-info">
-
-            <p>
-                Email: yourmail@gmail.com
-            </p>
-
-            <p>
-                GitHub: Satyam221303
-            </p>
-
-            <p>
-                Location: India
-            </p>
-
-        </div>
-
-    </section>
+    </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================= -->
+    ===================================================== -->
 
     <footer>
 
-        © 2026 Satyam221303.
-        All Rights Reserved.
+        © 2026 Satyam221303. All Rights Reserved.
 
     </footer>
 
 
-    <!-- =========================
-         SCROLL REVEAL JAVASCRIPT
-    ========================= -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
     <script>
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            () => {
 
-                const items =
-                    document.querySelectorAll(
-                        ".reveal"
-                    );
+        /* =================================================
+           SCROLL REVEAL
+        ================================================= */
 
-                if (
-                    !(
-                        "IntersectionObserver"
-                        in window
-                    )
-                ) {
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-                    items.forEach(
-                        item =>
-                            item.classList.add(
-                                "show"
-                            )
-                    );
 
-                    return;
+        function revealOnScroll() {
+
+            const windowHeight =
+                window.innerHeight;
+
+
+            revealElements.forEach(
+                function(element) {
+
+                    const elementTop =
+                        element.getBoundingClientRect().top;
+
+
+                    if (
+                        elementTop <
+                        windowHeight - 100
+                    ) {
+
+                        element.classList.add(
+                            "active"
+                        );
+
+                    }
+
                 }
+            );
 
-                const observer =
-                    new IntersectionObserver(
+        }
 
-                        (entries, obs) => {
 
-                            entries.forEach(
-                                entry => {
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
 
-                                    if (
-                                        entry.isIntersecting
-                                    ) {
 
-                                        entry.target.classList.add(
-                                            "show"
-                                        );
+        revealOnScroll();
 
-                                        obs.unobserve(
-                                            entry.target
-                                        );
 
-                                    }
+        /* =================================================
+           MOUSE GLOW EFFECT
+        ================================================= */
 
-                                }
-                            );
+        document.addEventListener(
+            "mousemove",
+            function(event) {
 
-                        },
+                const x =
+                    event.clientX;
 
-                        {
-                            threshold: 0.12
-                        }
+                const y =
+                    event.clientY;
 
+
+                document.documentElement.style
+                    .setProperty(
+                        "--mouse-x",
+                        x + "px"
                     );
 
-                items.forEach(
-                    item =>
-                        observer.observe(item)
-                );
+
+                document.documentElement.style
+                    .setProperty(
+                        "--mouse-y",
+                        y + "px"
+                    );
 
             }
         );
 
+
     </script>
+
 
 </body>
 
